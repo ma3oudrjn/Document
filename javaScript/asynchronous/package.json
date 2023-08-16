@@ -1,0 +1,16 @@
+{
+  "name": "asynchronous",
+  "version": "1.0.0",
+  "description": "this is all of the basic of javaScript",
+  "main": "Promises.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node setTimeout"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript"
+  ],
+  "author": "",
+  "license": "ISC"
+}
