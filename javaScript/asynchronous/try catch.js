@@ -4,7 +4,7 @@
 async function f() {
 
     try {
-      let response = await fetch('/no-user-here');
+      let response = await fetch('/no-user-here');     //await means what we wants
       let user = await response.json();
     } catch(err) {
       alert(err);
