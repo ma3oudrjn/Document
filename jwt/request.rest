@@ -2,9 +2,11 @@ GET http://localhost:3030/posts
 
 
 ###
-POST http://localhost:3030/login
-Content-Type: application/json
+POST http://localhost:5000/user/generateToken
 
-{
-    "username": "masoud"
-}
+###
+
+GET  http://localhost:5000/user/validateToken
+
+gfg_jwt_secret_key:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoiTW9uIEF1ZyAyMSAyMDIzIDE1OjA3OjMwIEdNVCswMzMwIChJcmFuIFN0YW5kYXJkIFRpbWUpIiwidXNlcklkIjoxMiwiaWF0IjoxNjkyNjE3ODUwfQ.b5jb6TCLtr68EPNsBM2BY2cy6SPaBZjXKwNhyBq5Lqg
+
