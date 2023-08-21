@@ -15,7 +15,7 @@ app.post('/api/createUser',(req,res)=>{
     });
     
 
-//gooood example___
+//good example___
 //                 |
 //                 |
 //                 V 
