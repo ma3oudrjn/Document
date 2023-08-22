@@ -43,5 +43,6 @@ const userSchima = new Schema({
 
     name:{type:String,required:true},
    Age:{type:Number,required:true},
-   id:{type:Number,required:true}
+   id:{type:Number,required:true},
+   _X:{}
 })
