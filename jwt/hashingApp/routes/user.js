@@ -31,9 +31,9 @@ router.post('/login', (req, res) => {
 }); 
 
 // User signup api 
-router.post('/signup', (req, res, next) => { 
+router.post('/signup', async(req, res, next) => { 
 
-
+try{
 // Creating empty user object 
     let newUser = new User(); 
 
@@ -47,9 +47,9 @@ router.post('/signup', (req, res, next) => {
 
                     // Call setPassword function to hash password 
                     newUser.setPassword(req.body.password); 
-
+}catch(err){console.log(err);}
     // Save newUser object to database 
-    newUser.save((err, User) => { 
+    newUser.save((err, User) => {
         if (err) { 
             return res.status(400).send({ 
                 message : "Failed to add user."
