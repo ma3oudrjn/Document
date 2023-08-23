@@ -4,7 +4,7 @@ var crypto = require('crypto');
   
 // Creating user schema 
 const UserSchema = mongoose.Schema({ 
-    name : { 
+   name : { 
         type : String, 
         required : true
     }, 
