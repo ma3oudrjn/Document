@@ -1,17 +1,35 @@
 const express = require('express');
-const app = express()
-const router= express.Router
+const app = express();
 const PORT = 3000;
-
-router.get('/', function (req, res, next) {
-    console.log("Router Working");
-    res.end();
-})
  
-app.use(router);
-app.listen(PORT,(err)=>{if(err) console.log(err)
-    else console.log("you are listen to: ",PORT,'port');
-})
-
-
-
+// Multiple routing
+const router1 = express.Router();
+const router2 = express.Router();
+const router3 = express.Router();
+ 
+router1.get('/user', function (req, res, next) {
+    console.log("User Router Working");
+    res.send("its work (router1)")
+    res.end();
+});
+ 
+router2.get('/admin', function (req, res, next) {
+    console.log("Admin Router Working");
+    res.send("its work (router2)")
+    res.end();
+});
+ 
+router3.get('/student', function (req, res, next) {
+    console.log("Student Router Working");
+    res.send("its work (router3)")
+    res.end();
+});
+ //midelwer
+app.use(router1);
+app.use(router2); 
+app.use(router3);
+ 
+app.listen(PORT, function (err) {
+    if (err) console.log(err);
+    console.log("Server listening on PORT", PORT);
+});
