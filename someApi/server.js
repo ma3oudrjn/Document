@@ -3,9 +3,11 @@ const mongoose = require('mongoose');
 let dbConfig = require('./database/db');
 const aboutusRoute=require("./routes/auRoutes")
 const app = express()
-const cors = require('cors')
-const PORT = process.env.PORT||7070;
+const cors = require('cors');
+var multer = require('multer');
 
+const PORT = process.env.PORT||7070;
+app.use(express.json())
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.db).then(() => {
   console.log('Database successfully connected!')
@@ -15,10 +17,7 @@ mongoose.connect(dbConfig.db).then(() => {
   }
 )
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({
-//   extended: true
-// }));
+
 app.use(cors());
 app.use('/aboutus', aboutusRoute)
 
