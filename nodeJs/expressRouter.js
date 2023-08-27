@@ -6,7 +6,10 @@ const PORT = 3000;
 const router1 = express.Router();
 const router2 = express.Router();
 const router3 = express.Router();
- 
+ router1.get('/',(req,res)=>{
+console.log("route1 !")
+res.send("home page")
+ })
 router1.get('/user', function (req, res, next) {
     console.log("User Router Working");
     res.send("its work (router1)")
