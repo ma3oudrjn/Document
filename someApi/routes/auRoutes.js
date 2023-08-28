@@ -8,7 +8,7 @@ router = express.Router();
 // create aboute us
 router.post("/create/aboutUs", (req, res, next) => {
     aboutusSchema.create(req.body, (err, data) => {
-      if (err) {
+      if (err){
         return next(err);
       } else {
         console.log(data);
@@ -28,11 +28,10 @@ router.get("/get/aboutus", (req, res) => {
     });
   });
   //delete 
-  router.delete("/delete/aboutus/:id", 
-  (req, res, next) => {
+  router.delete("/delete/aboutus/:id", (req, res, next) => {
     aboutusSchema.findByIdAndRemove(
         req.params.id, (error, data) => {
-      if (error) {
+      if (err){
         return next(error);
       } else {
         res.status(200).json({
@@ -40,11 +39,22 @@ router.get("/get/aboutus", (req, res) => {
         });
       }
     });
-  });
+});
 
 
-app.get('/',(res,req)=>{
+
+
+app.get('/',(req,res)=>{
 res.send("API test")
 console.log("API");
+
+
 })
+
+
+// app.post("/upload", upload.single("myFile"), (req, res) => {
+//   console.log("Body: ", req.body);
+//   console.log("File: ", req.file);
+//   res.send("File successfully uploaded.");
+// });
 module.exports = router;

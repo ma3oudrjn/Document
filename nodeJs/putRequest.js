@@ -14,10 +14,13 @@ app.put('/api/user/:id',(ereq,res)=>{
     // Update Student Data
   .put((req, res, next) => {
     studentSchema.findByIdAndUpdate(
+
+      
       req.params.id,
       {
         $set: req.body,
       },
+
       (error, data) => {
         if (error) {
           return next(error);

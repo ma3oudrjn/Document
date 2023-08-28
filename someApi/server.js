@@ -1,10 +1,14 @@
 const express =require('express')
 const mongoose = require('mongoose');
-let dbConfig = require('./database/db');
+let dbConfig = require('./negin qument/db');
 const aboutusRoute=require("./routes/auRoutes")
 const app = express()
 const cors = require('cors');
 var multer = require('multer');
+
+app.use(express.urlencoded({ extended: true }));
+const upload = multer({ dest: 'uploads/' })
+
 
 const PORT = process.env.PORT||7070;
 app.use(express.json())
