@@ -23,7 +23,7 @@ app.get('/upload',(req,res)=>{
 res.render('./views/upload.ejs');
 })
 
-app.post('/upload',(req,res)=>{
+app.post('/upload',upload.single('image'),(req,res)=>{
     res.render("image uploaded");
     })
 
