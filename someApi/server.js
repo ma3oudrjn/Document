@@ -1,6 +1,6 @@
-const express =require('express')
+const express = require('express')
 const mongoose = require('mongoose');
-let dbConfig = require('./database/db');
+// let dbConfig = require('./database/db');
 const aboutusRoute=require("./routes/auRoutes")
 const app = express()
 const cors = require('cors');
@@ -13,7 +13,7 @@ const upload = multer({ dest: 'uploads/' })
 const PORT = process.env.PORT||7070;
 app.use(express.json())
 mongoose.Promise = global.Promise;
-mongoose.connect(dbConfig.db).then(() => {
+mongoose.connect('mongodb://localhost:27017').then(() => {
   console.log('Database successfully connected!')
 },
   error => {
@@ -23,7 +23,8 @@ mongoose.connect(dbConfig.db).then(() => {
 
 
 app.use(cors());
-app.use('/aboutus', aboutusRoute)
+ app.use( aboutusRoute)
+
 
 
 
