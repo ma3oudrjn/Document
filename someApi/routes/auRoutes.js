@@ -21,12 +21,12 @@ function uploadFiles(req, res) {
 // get all of them
 router.get("/get/aboutus", (req, res) => {
   
-    aboutusSchema.find((error, data) => {
+    aboutusSchema.find((error, data,next) => {
 
       if (error) {
         return next(error);
       } else {
-        res.status
+        res.status(200)
         res.json(data);
       }
     });
