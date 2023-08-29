@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose');
 // let dbConfig = require('./database/db');
 const aboutusRoute=require("./routes/auRoutes")
+const user=require('./validator/userValid')
 const app = express()
 const cors = require('cors');
 var multer = require('multer');
@@ -24,6 +25,7 @@ mongoose.connect('mongodb://localhost:27017').then(() => {
 
 app.use(cors());
  app.use( aboutusRoute)
+ app.use(user)
 
 
 
