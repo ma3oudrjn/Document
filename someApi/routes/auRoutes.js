@@ -1,24 +1,28 @@
 const express = require ('express')
 let mongoose = require("mongoose")
 const app = express()
+const multer = require('multer')
+const upload = multer({ dest: "uploads/" });
 
 const aboutusSchema=require('../models/abaoutUs')
 router = express.Router();
 
 // create aboute us
-router.post("/create/aboutUs", (req, res, next) => {
-    aboutusSchema.create(req.body, (err, data) => {
-      if (err){
-        return next(err);
-      } else {
-        console.log(data);
-        res.json(data);
-      }
-    });
-  });
+app.post("/upload_image", upload.array("recfile"), uploadFiles);
+
+function uploadFiles(req, res) {
+	console.dir(req.body);
+	console.log(req.files);
+	res.json({ message: "Successfully uploaded files" });
+}
+
+
+
 // get all of them
 router.get("/get/aboutus", (req, res) => {
+  
     aboutusSchema.find((error, data) => {
+
       if (error) {
         return next(error);
       } else {

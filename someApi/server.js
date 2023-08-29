@@ -1,6 +1,6 @@
 const express =require('express')
 const mongoose = require('mongoose');
-let dbConfig = require('./negin qument/db');
+let dbConfig = require('./database/db');
 const aboutusRoute=require("./routes/auRoutes")
 const app = express()
 const cors = require('cors');
@@ -24,6 +24,8 @@ mongoose.connect(dbConfig.db).then(() => {
 
 app.use(cors());
 app.use('/aboutus', aboutusRoute)
+
+
 
 
 
