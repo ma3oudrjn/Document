@@ -8,19 +8,18 @@ const aboutusSchema=require('../models/abaoutUs')
 router = express.Router();
 
 // create aboute us
-app.post("/upload_image", upload.array("recfile"), uploadFiles);
+router.post("/upload_image", upload.array("recfile"), uploadFiles);
 
 function uploadFiles(req, res) {
 	console.dir(req.body);
 	console.log(req.files);
-	res.json({ message: "Successfully uploaded files" });
+	res.json({ message: "Successfully uploaded files" })
 }
-
 
 
 // get all of them
 router.get("/get/aboutus", (req, res) => {
-  
+
     aboutusSchema.find((error, data,next) => {
 
       if (error) {
@@ -31,6 +30,7 @@ router.get("/get/aboutus", (req, res) => {
       }
     });
   });
+
   //delete 
   router.delete("/delete/aboutus/:id", (req, res, next) => {
     aboutusSchema.findByIdAndRemove(
@@ -48,17 +48,12 @@ router.get("/get/aboutus", (req, res) => {
 
 
 
-app.get('/',(req,res)=>{
+router.get('/',(req,res)=>{
 res.send("API test")
 console.log("API");
-
-
 })
 
 
-// app.post("/upload", upload.single("myFile"), (req, res) => {
-//   console.log("Body: ", req.body);
-//   console.log("File: ", req.file);
-//   res.send("File successfully uploaded.");
-// });
+
+
 module.exports = router;

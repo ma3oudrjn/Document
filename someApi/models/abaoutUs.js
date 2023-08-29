@@ -10,5 +10,10 @@ let aboutUsSchema=new Schema({
 }, {
     collection: 'about us'
   })
+  let register=new Schema({
+  
+
+
+  })
   
 module.exports = mongoose.model('aboutUs', aboutUsSchema)
